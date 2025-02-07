@@ -1,0 +1,71 @@
+body 
+{
+    font-family: Arial, sans-serif;
+    background-image: url(bgpuding.jpg);
+    background-size: cover;
+}
+
+h1
+{
+    text-align: center;
+    background-color: pink;
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+input 
+{
+    margin-top: 10px;
+    padding: 5px;
+    width: 100px;
+    text-align: center;
+}
+
+button 
+{
+    padding: 5px 10px;
+    background-color: pink;
+    color: black;
+    border: none;
+}
+
+a 
+{
+    text-align: center;
+    margin: 2rem 0;
+    text-decoration: none;
+    color: white;
+    background-color: pink;
+    padding: 10px 20px;  
+}
+
+table
+{
+    margin: auto;
+    width: 50%;
+                
+}
+
+.container 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-column 
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px;
+}
+
+.image-column img 
+{
+    width: 250px;
+    height: 120px;
+    object-fit: cover;
+    border: 2px solid black;
+
+}

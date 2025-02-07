@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resepi Cost Calculator</title>
+        <link rel="stylesheet" href="styles.css">
+        
+    </head>
+    <body>
+        
+        <h1>COOKIES ALBINO VANILA WITH CIP COKLAT</h1>
+        <hr>
+        <div class="container">
+            <div class="image-column">
+                <img src="mentega.jpeg" >
+                <img src="gula kastor.jpeg" >
+                <img src="gula perang.jpeg" >
+                <img src="telur.jpeg" >
+                <img src="esen_vanila.jpeg" >
+            </div>
+
+        <table border="2">
+        
+        <tr>
+            <th><h2>Bahan - Bahan :</h2></th>
+        </tr>
+        <tr>
+            <td><label for="quantity">Masukkan jumlah hidangan: ps. 1 acuan memuatkan 1 balang cookies</label></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="number" id="quantity" min="1" >
+                <button onclick="calculateIngredients()">Kira Bahan</button>
+            </td>
+        </tr>
+        
+          
+            
+            <td>   
+                <ul id="ingredients">
+                    <li>mentega: 150 g</li>
+                    <li>gula kastor: 100 g</li>
+                    <li>gula perang: 50 ml</li>
+                    <li>telur: 1 biji</li>
+                    <li>esen vanila: 1 sudu (kecil)</li>
+                    <li>tepung gandum: 200 g</li>
+                    <li>baking soda: 1 sudu (kecil)</li>
+                    <li>garam: 5 g</li>
+                    <li>cip coklat: 150 g</li>
+                </ul>
+             </td>
+
+        </tr>
+
+        </table>  
+            <div class="image-column">
+                <img src="tepung gandum.jpeg" >
+                <img src="baking soda.jpeg" >
+                <img src="garam.jpeg" >
+                <img src="cip_coklat.jpeg" >
+                <img src="penimbang_bahan.jpeg" >
+            </div>
+        </div>
+
+        <script>
+            function calculateIngredients() {
+                const quantity = parseInt(document.getElementById('quantity').value);
+                const ingredientsList = document.getElementById('ingredients');
+
+                if (!quantity || quantity <= 0) {
+                    alert('there can be no negative numbers ! please change.');
+                    return;
+                }
+
+                const baseServings = 1; // Resipi asal untuk 1 hidangan
+                const multiplier = quantity / baseServings;
+
+                // Bahan-bahan asas
+                const ingredients = [
+                    { name: 'mentega', amount: 150, unit: 'g' },
+                    { name: 'gula kastor', amount: 100, unit: 'g' },
+                    { name: 'gula perang', amount: 50, unit: 'g' },
+                    { name: 'telur', amount: 1, unit: 'biji' },
+                    { name: 'esen vanila', amount: 1, unit: 'sudu (kecik)' },
+                    { name: 'tepung gandum', amount: 200, unit: 'g' },
+                    { name: 'baking soda', amount: 1, unit: 'sudu (kecik)' },
+                    { name: 'garam', amount: 5, unit: 'g' },
+                    { name: 'cip coklat', amount: 150, unit: 'g' }
+                ];
+
+                ingredientsList.innerHTML = ''; // Kosongkan senarai bahan lama
+
+                // Kira bahan baru berdasarkan multiplier
+                ingredients.forEach(ingredient => {
+                    const newAmount = (ingredient.amount * multiplier).toFixed();
+                    const li = document.createElement('li');
+                    li.textContent = `${ingredient.name}: ${newAmount} ${ingredient.unit}`;
+                    ingredientsList.appendChild(li);
+                });
+            }
+        </script>
+
+        <p style="text-align: center;">
+            <br><br>
+            <a href="langkah.html">Go to Next Page</a>
+            <a href="index.html">Go to Home Page</a>
+        </p>
+
+    </body>
+
+
+</html>

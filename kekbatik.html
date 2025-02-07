@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resepi Cost Calculator</title>
+        <link rel="stylesheet" href="styles3.css">
+        
+    </head>
+    <body>
+        
+        <h1>KEK BATIK</h1>
+        <hr>
+        <div class="container">
+            <div class="image-column">
+                <img src="biskutmarie.jpeg" >
+                <img src="mentega.jpeg" >
+                <img src="susupekat.jpeg" >
+                <img src="serbukkoko.jpeg" >
+            </div>
+        <table border="2">
+        
+        <tr>
+            <th><h2>Bahan - Bahan :</h2></th>
+        </tr>
+        <tr>
+            <td><label for="quantity">Masukkan jumlah hidangan: ps. 1 acuan memuatkan 1 loyang kek batik</label></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="number" id="quantity" min="1" >
+                <button onclick="calculateIngredients()">Kira Bahan</button>
+            </td>
+        </tr>
+        
+          
+            
+            <td>   
+                <ul id="ingredients">
+                    <li>biskut marie: 250 g</li>
+                    <li>mentega: 200 g</li>
+                    <li>susu pekat: 1 cawan</li>
+                    <li>serbuk koko: 1 cawan</li>
+                    <li>air panas: 120 ml</li>
+                    <li>gula: 1 cawan</li>
+                    <li>esen vanila: 1 sudu (kecik)</li>
+                </ul>
+             </td>
+
+        </tr>
+
+        </table>  
+            <div class="image-column">
+                <img src="airpanas.jpeg" >
+                <img src="gula kastor.jpeg" >
+                <img src="esen_vanila.jpeg" >
+                <img src="penimbang_bahan.jpeg" >
+            </div>
+        </div>
+
+        <script>
+            function calculateIngredients() {
+                const quantity = parseInt(document.getElementById('quantity').value);
+                const ingredientsList = document.getElementById('ingredients');
+
+                if (!quantity || quantity <= 0) {
+                    alert('there can be no negative numbers ! please change.');
+                    return;
+                }
+
+                const baseServings = 1; // Resipi asal untuk 1 hidangan
+                const multiplier = quantity / baseServings;
+
+                // Bahan-bahan asas
+                const ingredients = [
+                    { name: 'biskut marie', amount: 250, unit: 'g' },
+                    { name: 'mentega', amount: 200, unit: 'g' },
+                    { name: 'susu pekat', amount: 1, unit: 'cawan' },
+                    { name: 'serbuk koko', amount: 1, unit: 'cawan' },
+                    { name: 'air panas', amount: 120, unit: 'ml' },
+                    { name: 'gula', amount: 1, unit: 'cawan' },
+                    { name: 'esen vanila', amount: 1, unit: 'sudu (kecik)' },
+                ];
+
+                ingredientsList.innerHTML = ''; // Kosongkan senarai bahan lama
+
+                // Kira bahan baru berdasarkan multiplier
+                ingredients.forEach(ingredient => {
+                    const newAmount = (ingredient.amount * multiplier).toFixed();
+                    const li = document.createElement('li');
+                    li.textContent = `${ingredient.name}: ${newAmount} ${ingredient.unit}`;
+                    ingredientsList.appendChild(li);
+                });
+            }
+        </script>
+
+        <p style="text-align: center;">
+            <br><br>
+            <a href="langkah3.html">Go to Next Page</a>
+            <a href="index.html">Go to Home Page</a>
+        </p>
+
+    </body>
+
+
+</html>
